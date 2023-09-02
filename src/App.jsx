@@ -6,10 +6,10 @@ import Header from './components/Header'
 function App() {
   return (
     <>
-      <div className='mx-8 my-3'> 
+      <div className='mx-6 my-3'> 
         <Header></Header>
       </div>
-      <div>
+      <div className='mx-8 my-3'>
         {
           <Outlet></Outlet>
         }

@@ -1,9 +1,12 @@
+import Categories from "./Categories";
 
 
 const Home = () => {
     return (
         <div>
-            Home page
+            <div>
+                <Categories></Categories>
+            </div>
         </div>
     );
 };

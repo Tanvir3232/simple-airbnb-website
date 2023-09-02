@@ -25,6 +25,9 @@ const Header = () => {
                         <li>
                            <Link to='add-category'>Add Category</Link>
                         </li>
+                        <li>
+                           <Link to='add-service'>Add Service</Link>
+                        </li>
                         <li><a>Settings</a></li>
                         <li><a>Logout</a></li>
                     </ul>

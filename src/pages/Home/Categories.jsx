@@ -1,18 +1,15 @@
-import { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
-const Categories = () => {
-    const [categories,setCategories] = useState([]);
-    useEffect(()=>{
-        fetch('http://localhost:5000/categories')
-        .then(res=> res.json())
-        .then(data=>setCategories(data))
-    },[])
+const Categories = ({handleCategoryFilter,category}) => {
+    const categories = useLoaderData();
+   
     return (
-        <div className="flex my-5 items-center gap-5">
+        <div className="flex my-5 items-center gap-6">
             {
-                categories.map(item => <div key={item._id} className="flex flex-col items-center">
+                categories.map(item => 
+                <div key={item._id} className="flex gap-2 hover:cursor-pointer flex-col items-center" onClick={()=>handleCategoryFilter(item.category)}>
                     <figure className="h-8 w-8"> <img className="w-full h-full" src={item.icon} alt="" /> </figure>
-                    <h4 className="text-xl font-medium text-gray-600">{item.category}</h4>
+                    <h4 className={`text-sm font-medium ${item.category === category?'border-b-2 border-gray-700':''} text-gray-700`}>{item.category}</h4>
                 </div>)
             }
         </div>

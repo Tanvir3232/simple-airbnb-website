@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 
@@ -8,7 +9,7 @@ const AddService = () => {
     const [categories,setCategories] = useState([]);
     const { register, handleSubmit,reset} = useForm();
     useEffect(()=>{
-        fetch('http://localhost:5000/categories')
+        fetch('https://airbnb-app-server.vercel.app/categories')
         .then(res=> res.json())
         .then(data=>setCategories(data))
     },[])
@@ -27,7 +28,7 @@ const AddService = () => {
                 const {propertyTitle,category,propertyType,address,guests,bedrooms,bathrooms,nightlyRate,availabilityCalendar,beds} = data;
                 const newService = { propertyTitle,category, propertyType, address,guests:parseInt(guests),bedrooms: parseInt(bedrooms),bathrooms:parseInt(bathrooms),nightlyRate:parseInt(nightlyRate),
                     availabilityCalendar, image:imgURL,beds:parseInt(beds)}
-                fetch('http://localhost:5000/add-service', {
+                fetch('https://airbnb-app-server.vercel.app/add-service', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'
@@ -51,6 +52,9 @@ const AddService = () => {
     };
     return (
         <div className="w-4/5 mx-auto border-2 p-5 rounded-md">
+            <Helmet>
+                <title>Add Service</title>
+            </Helmet>
             <h1 className="text-center text-3xl font-bold my-5">Add Service</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-2 gap-6">
                 <div className="flex gap-5 my-2 items-center">

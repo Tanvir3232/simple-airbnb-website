@@ -2,7 +2,6 @@ import { useLoaderData } from "react-router-dom";
 
 const Categories = ({handleCategoryFilter,category}) => {
     const categories = useLoaderData();
-   
     return (
         <div className="flex my-5 items-center gap-6">
             {

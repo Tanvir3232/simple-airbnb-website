@@ -1,4 +1,5 @@
 
+import { Helmet } from 'react-helmet';
 import Swal from 'sweetalert2';
 const img_hosting_endpoint = 'https://api.imgbb.com/1/upload'; 
 const AddCategory = () => {
@@ -26,7 +27,7 @@ const AddCategory = () => {
           const imgURL = imgResponse.data.url;
           const newCategory = { category: categoryName,icon: imgURL };
           console.log(newCategory);
-          fetch('http://localhost:5000/add-category', {
+          fetch('https://airbnb-app-server.vercel.app/add-category', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -57,6 +58,9 @@ const AddCategory = () => {
 
     return (
         <div className="md:w-1/2 mx-auto border-2 rounded-xl p-5">
+            <Helmet>
+                <title>Add Category</title>
+            </Helmet>
             <h1 className="text-center text-3xl font-bold my-4">Add Category</h1>
             <form onSubmit={handleAddCategory}>
                 <div className="flex gap-3 w-full items-center">

@@ -10,7 +10,7 @@ const ServiceCard = ({service}) => {
                  <FaHeart className="absolute top-1 right-2 text-gray-100 hover:cursor-pointer hover:text-red-500"></FaHeart>
             </figure>
             <h4 className="font-semibold mt-3">{propertyTitle}</h4>
-            <p> {address}</p>
+            <p > {address}</p>
             <p>{availabilityCalendar}</p>
             <p className=" mt-3"><span className="font-bold">$ {nightlyRate}</span> night</p>
         </div>
